@@ -12,9 +12,8 @@ void main() {
       JsonPlaceholderService service = JsonPlaceholderService(ClientDio());
       List<Todos> listTodoExpectedGetAll =
           jsonTodos.map((item) => Todos.fromJson(item)).toList();
-
       // Act
-      final response = await service.getAll();
+      final response = await service.getTodos();
       // Assert
       expect(response, equals(listTodoExpectedGetAll));
     });

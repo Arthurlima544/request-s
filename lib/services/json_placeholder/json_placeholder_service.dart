@@ -9,7 +9,7 @@ class JsonPlaceholderService {
 
   JsonPlaceholderService(this.client);
 
-  Future<List<Todos>> getAll() async {
+  Future<List<Todos>> getTodos() async {
     var response = await client.get(url);
     var body = (response.data as List);
     List<Todos> listTodos = body.map((item) {
