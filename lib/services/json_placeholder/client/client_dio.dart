@@ -31,4 +31,13 @@ class ClientDio implements HttpClientInterface {
         }));
     return response;
   }
+
+  @override
+  Future<dynamic> delete(String url) async {
+    var response = await dio.delete(url,
+        options: Options(headers: {
+          HttpHeaders.contentTypeHeader: "application/json; charset=UTF-8"
+        }));
+    return response;
+  }
 }
