@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:learn_more_about_request/services/json_placeholder/client/client_dio.dart';
 import 'package:learn_more_about_request/services/json_placeholder/json_placeholder_service.dart';
@@ -16,6 +15,22 @@ void main() {
       final response = await service.getTodos();
       // Assert
       expect(response, equals(listTodoExpectedGetAll));
+    });
+  });
+  group('Post Request Test\'s', () {
+    test(
+        ' Should make a real post request and return a update Todo '
+        '(By Defalt the json_placeholder_api have just a post method in id 101) ',
+        () async {
+      // Arrage
+      JsonPlaceholderService service = JsonPlaceholderService(ClientDio());
+      Todos todo = const Todos(
+          completed: false, id: 101, title: "Post request test", userId: 200);
+
+      // Act
+      final response = await service.postTodo(todo);
+      // Assert
+      expect(response, equals(todo));
     });
   });
 }
