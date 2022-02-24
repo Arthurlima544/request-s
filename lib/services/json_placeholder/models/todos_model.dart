@@ -19,6 +19,14 @@ class Todos extends Equatable {
         title: json['title'],
         completed: json['completed']);
   }
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'userId': userId,
+      'title': title,
+      'completed': completed,
+    };
+  }
 
   @override
   List<Object?> get props => [userId, id, title, completed];
