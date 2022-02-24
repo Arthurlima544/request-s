@@ -30,4 +30,9 @@ class JsonPlaceholderService {
     var updatedTodo = Todos.fromJson(response.data);
     return updatedTodo;
   }
+
+  Future<dynamic> deleteTodo(id) async {
+    Response response = await client.delete("$baseUrl/posts/$id");
+    return response.data;
+  }
 }
