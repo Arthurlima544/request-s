@@ -19,7 +19,7 @@ void main() {
   });
   group('Post Request Test\'s', () {
     test(
-        ' Should make a real post request and return a update Todo '
+        ' Should make a real post request and return a new Todo '
         '(By Defalt the json_placeholder_api have just a post method in id 101) ',
         () async {
       // Arrage
@@ -29,6 +29,19 @@ void main() {
 
       // Act
       final response = await service.postTodo(todo);
+      // Assert
+      expect(response, equals(todo));
+    });
+  });
+
+  group('Put Request Test\'s', () {
+    test(' Should make a real put request and return a update Todo ', () async {
+      // Arrage
+      JsonPlaceholderService service = JsonPlaceholderService(ClientDio());
+      Todos todo = const Todos(
+          completed: false, id: 3, title: "Put request test", userId: 200);
+      // Act
+      final response = await service.putTodo(todo);
       // Assert
       expect(response, equals(todo));
     });
