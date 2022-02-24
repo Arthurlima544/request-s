@@ -46,6 +46,17 @@ void main() {
       expect(response, equals(todo));
     });
   });
+  group('Delete Request Test\'s', () {
+    test(' Should make a real remove request  ', () async {
+      // Arrage
+      JsonPlaceholderService service = JsonPlaceholderService(ClientDio());
+      var expectedResponse = {};
+      // Act
+      final response = await service.deleteTodo(1);
+      // Assert
+      expect(response, equals(expectedResponse));
+    });
+  });
 }
 
 const jsonTodos = [
