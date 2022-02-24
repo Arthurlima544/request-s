@@ -1,6 +1,7 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:learn_more_about_request/services/json_placeholder/interface/http_client_interface.dart';
-import 'package:learn_more_about_request/services/json_placeholder/models/todos_model.dart';
 
 class ClientDio implements HttpClientInterface {
   Dio dio = Dio();
@@ -8,6 +9,16 @@ class ClientDio implements HttpClientInterface {
   @override
   Future<dynamic> get(String url) async {
     var response = await dio.get(url);
+    return response;
+  }
+
+  @override
+  Future<dynamic> post(String url, dynamic body) async {
+    var response = await dio.post(url,
+        data: body,
+        options: Options(headers: {
+          HttpHeaders.contentTypeHeader: "application/json; charset=UTF-8"
+        }));
     return response;
   }
 }
