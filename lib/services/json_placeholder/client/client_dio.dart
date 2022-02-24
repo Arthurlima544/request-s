@@ -21,4 +21,14 @@ class ClientDio implements HttpClientInterface {
         }));
     return response;
   }
+
+  @override
+  Future<dynamic> put(String url, dynamic body) async {
+    var response = await dio.put(url,
+        data: body,
+        options: Options(headers: {
+          HttpHeaders.contentTypeHeader: "application/json; charset=UTF-8"
+        }));
+    return response;
+  }
 }

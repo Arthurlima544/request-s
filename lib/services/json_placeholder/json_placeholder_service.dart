@@ -23,4 +23,11 @@ class JsonPlaceholderService {
     var newTodo = Todos.fromJson(response.data);
     return newTodo;
   }
+
+  Future<Todos> putTodo(Todos todo) async {
+    Response response =
+        await client.put("$baseUrl/posts/${todo.id}", todo.toJson());
+    var updatedTodo = Todos.fromJson(response.data);
+    return updatedTodo;
+  }
 }
