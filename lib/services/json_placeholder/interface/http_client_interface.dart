@@ -1,4 +1,5 @@
 abstract class HttpClientInterface {
   Future<dynamic> get(String url);
   Future<dynamic> post(String url, dynamic body);
+  Future<dynamic> put(String url, dynamic body);
 }
