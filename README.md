@@ -11,7 +11,11 @@ This project uses:
 
 ## How to run
 Project:
-
 ```cmd
 flutter pub pub get
+```
+
+Unit and Widget test's:
+```cmd
+flutter test
 ```
